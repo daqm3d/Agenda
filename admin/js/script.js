@@ -1,0 +1,137 @@
+		$(function() {
+			load(1);
+		});
+		function load(page){
+			var query=$("#q").val();
+			var per_page=10;
+			var parametros = {"action":"ajax","page":page,'query':query,'per_page':per_page};
+			$("#loader").fadeIn('slow');
+			$.ajax({
+				url:'ajax/listar_telefonos.php',
+				data: parametros,
+				 beforeSend: function(objeto){
+				$("#loader").html("Cargando...");
+			  },
+				success:function(data){
+					$(".outer_div").html(data).fadeIn('slow');
+					$("#loader").html("");
+				}
+			})
+		}
+		$('#editProductModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var code = button.data('code') 
+		  $('#edit_code').val(code)
+		  var name = button.data('name') 
+		  $('#edit_name').val(name)
+		  var category = button.data('category') 
+		  $('#edit_category').val(category)
+		  var price = button.data('price') 
+		  $('#edit_price').val(price)
+		  var id = button.data('id') 
+		  $('#edit_id').val(id)
+		})
+		
+		$('#deleteProductModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var id = button.data('id') 
+		  $('#delete_id').val(id)
+		})
+		
+		
+		$( "#edit_product" ).submit(function( event ) {
+		  var parametros = $(this).serialize();
+			$.ajax({
+					type: "POST",
+					url: "ajax/editar_producto.php",
+					data: parametros,
+					 beforeSend: function(objeto){
+						$("#resultados").html("Enviando...");
+					  },
+					success: function(datos){
+					$("#resultados").html(datos);
+					load(1);
+					$('#editProductModal').modal('hide');
+				  }
+			});
+		  event.preventDefault();
+		});
+		
+		
+		$( "#add_product" ).submit(function( event ) {
+		  var parametros = $(this).serialize();
+			$.ajax({
+					type: "POST",
+					url: "ajax/guardar_producto.php",
+					data: parametros,
+					 beforeSend: function(objeto){
+						$("#resultados").html("Enviando...");
+					  },
+					success: function(datos){
+					$("#resultados").html(datos);
+					load(1);
+					$('#addProductModal').modal('hide');
+				  }
+			});
+		  event.preventDefault();
+		});
+		
+		$( "#delete_product" ).submit(function( event ) {
+		  var parametros = $(this).serialize();
+			$.ajax({
+					type: "POST",
+					url: "ajax/eliminar_producto.php",
+					data: parametros,
+					 beforeSend: function(objeto){
+						$("#resultados").html("Enviando...");
+					  },
+					success: function(datos){
+					$("#resultados").html(datos);
+					load(1);
+					$('#deleteProductModal').modal('hide');
+				  }
+			});
+		  event.preventDefault();
+		});
+                
+                
+                //Se utiliza para que el campo de texto solo acepte numeros
+function SoloNumeros(evt){
+ if(window.event){//asignamos el valor de la tecla a keynum
+  keynum = evt.keyCode; //IE
+ }
+ else{
+  keynum = evt.which; //FF
+ } 
+ //comprobamos si se encuentra en el rango numérico y que teclas no recibirá.
+ if((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13 || keynum == 6 ){
+  return true;
+ }
+ else{
+  return false;
+ }
+}
+
+
+//
+
+//Se utiliza para que el campo de texto solo acepte letras
+function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";//Se define todo el abecedario que se quiere que se muestre.
+    especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+alert('Tecla no aceptada');
+        return false;
+      }
+}

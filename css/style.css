@@ -1,0 +1,146 @@
+@import url('reset.css');
+body{
+	background:#555 url(../images/random_white_variations.png)  top left;
+	color:#000;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size:12px;
+	overflow-y:scroll;
+}
+a{
+	color:#f0f0f0;
+	text-decoration:none;
+}
+.clr{
+	clear:both;
+}
+.container {
+	width:100%;
+	margin:0 auto;
+}
+.header{
+	padding-top:10px;
+}
+.more ul{
+	text-transform:uppercase;
+	font-size:13px;
+	font-weight:bold;
+	padding:20px 0px 30px 20px;
+	height:30px;
+}
+.more ul li{
+	float:left;
+	margin:0px 1px;
+}
+.more ul li.selected a,
+.more ul li.selected a:hover{
+	background:#000;
+	color:#fff;
+	text-shadow:none;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px 5px 5px 5px;
+}
+.more ul li a{
+	text-shadow:1px 1px 1px #000;
+	color:#e3cbfe;
+	padding:3px 6px;
+}
+.more ul li a:hover{
+	color:#bda2dc;
+}
+h1{
+	margin:0 0 13px 0;
+	float:left;
+	clear:both;
+	font-size:34px;
+	padding:12px;
+	text-shadow:0px 0px 1px #000;
+	color:#f8f8f8;
+	font-family:'News Cycle', Georgia, serif;
+}
+h1 span{
+	color:#171008;
+	text-align:left;
+	font-size:45px;
+	padding:0 10px;
+}
+h2{
+	float:right;
+	color:#bda2dc;
+	padding:30px 20px 0 0;
+}
+.content{
+	width:100%;
+	position:relative;
+	margin:20px 0 0 0;
+	clear:both;
+}
+/* Footer Style */
+.topbar{
+	position:relative;
+	width:100%;
+	height:25px;
+	line-height:24px;
+	bottom:0;
+	font-size:13px;
+	background:#000;
+	opacity:0.7;
+	text-transform:uppercase;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	z-index:4;
+}
+.topbar a{
+	padding:5px 10px;
+	letter-spacing:1px;
+	text-shadow:1px 1px 1px #000;
+	color:#ddd;
+	text-align:right;
+}
+.topbar a:hover{
+	color:#fff;
+}
+.topbar a span{
+	font-weight:bold;
+}
+.topbar span.right_ab{
+	position:absolute;
+	right:4px;
+}
+
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 2px;
+    font-weight: 100;
+    font-size: 23px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 20px 40px;
+    border: 2px solid #0016b0;
+  }
+  
+  .form {
+    width: 30px;  
+    margin-left: 150px;
+    text-align: left;
+
+}
+table {
+  margin-left: 120px;
+  border-collapse: collapse;
+  width: 120%;
+}
+
+th, td {
+  text-align: left;
+  font-size: large;
+  padding: 20px;
+  border-radius:20px 20px;
+}
+td {background-color: #ddd}
+tr:nth-child(even){background-color: #CE6F4B}
+
+th {
+  background-color: #2584CA;
+  color: white;
+  border-radius:20px 40px;
+}
