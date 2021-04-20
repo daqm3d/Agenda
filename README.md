@@ -1,2 +1,2 @@
 # AgendaTLF
-Agenda Telefonica, Busqueda por Nombre, Extensión y Departamento
+Agenda para tomas de notas en tiempo real
